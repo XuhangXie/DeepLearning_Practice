@@ -1,1 +1,1 @@
-these files are form torchvison modules
+these files are from torchvison modules
