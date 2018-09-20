@@ -31,8 +31,8 @@ class bottleneck(nn.Module):
     def forward(self, x):
         residual = x
 
-        out = self.conv2(x)
-        out = self.bn2(x)
+        out = self.conv1(x)
+        out = self.bn1(x)
 
         out = self.conv2(x)
         out = self.bn2(x)
@@ -46,8 +46,6 @@ class bottleneck(nn.Module):
         out += residual
         out = self.relu(out)
         return out
-
-
 
 
 class Res50(nn.Module):
@@ -106,12 +104,11 @@ class Res50(nn.Module):
         return x
 
 
-
+# Test
 model = Res50(num_classes=4)
-
-
 print(model)
 
+# if wants pre_trained weights
 pretrained = False
 if pretrained:
     model.load_state_dict(model_zoo.load_url('https://download.pytorch.org/models/resnet50-19c8e357.pth'))
